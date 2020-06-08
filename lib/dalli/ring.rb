@@ -29,6 +29,7 @@ module Dalli
     end
 
     def server_for_key(key)
+      binding.pry
       if @continuum
         hkey = hash_for(key)
         20.times do |try|
