@@ -42,6 +42,11 @@ module Dalli
         server = @servers.first
         return server if server && server.alive?
       end
+      # Test on staging
+      my_logger = Logger.new("#{Rails.root}/log/yeng.log")
+      my_logger.info("@continuum value is: #{@continuum.to_s}")
+      my_logger.info("First @servers is: #{@servers.first.to_s}")
+      my_logger.info("First @servers alive?: #{@servers.first.alive?}")
 
       raise Dalli::RingError, "No server available"
     end
